@@ -1,4 +1,4 @@
-function naturals(end = Infinity): IterableIterator<number> {
+export function naturals(end = Infinity): IterableIterator<number> {
   let n = 1;
   return {
     next(): IteratorResult<number> {
