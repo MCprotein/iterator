@@ -28,6 +28,7 @@ export function reduce<A, Acc>(
   if (iterable === undefined) {
     const iterator = (accOrIterable as Iterable<A>)[Symbol.iterator]();
     const { done, value: acc } = iterator.next();
+    console.log('reduce acc: ', acc, 'done: ', done);
     if (done)
       throw new TypeError("'reduce' of empty iterable with no initial value");
     return baseReduce(f, acc, iterator) as Acc;

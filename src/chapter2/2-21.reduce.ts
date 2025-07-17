@@ -1,4 +1,4 @@
-function reduce<A, Acc>(
+export function reduce<A, Acc>(
   f: (acc: Acc, a: A) => Acc,
   acc: Acc,
   iterable: Iterable<A>
