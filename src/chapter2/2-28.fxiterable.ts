@@ -4,9 +4,10 @@ import { reduce } from './2-22.reduce-overload';
 // import { filter } from '../chapter1/1-40.filter';
 // import { take } from '../chapter3/3-4.sum-of-squares-of-odd-numbers-take';
 import { filter, map, take } from '../chapter3/3-32.lazy-evaluation-functions';
+import { chunk } from '../chapter4/4-17.chunk';
 
 export class FxIterable<A> {
-  constructor(private iterable: Iterable<A>) {}
+  constructor(protected iterable: Iterable<A>) {}
 
   [Symbol.iterator]() {
     return this.iterable[Symbol.iterator]();
@@ -50,6 +51,10 @@ export class FxIterable<A> {
 
   take(limit: number): FxIterable<A> {
     return new FxIterable(take(limit, this));
+  }
+
+  chunk(size: number): FxIterable<A[]> {
+    return new FxIterable(chunk(size, this));
   }
 }
 
